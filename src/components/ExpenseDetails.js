@@ -1,10 +1,12 @@
+import './ExpenseDetails'
+import './Card.css';
 function ExpenseDetails(props)
 { var title=props.title;
   var amount=props.amount
   var id=props.id;
 
-  return <div>
-    <div>{title}</div>
+  return <div className="card">
+    <div >{title}</div>
     <div>{amount}</div>
     <div>{id}</div>
   </div>
