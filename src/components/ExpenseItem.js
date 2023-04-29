@@ -4,8 +4,8 @@ import Card from './Card';
 import './ExpenseItem.css';
 
 function ExpenseItem(props) {
-  //const [amount,setAmount]=useState(props.amount)  
-  
+ 
+
 
   return (
     

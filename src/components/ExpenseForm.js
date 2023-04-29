@@ -4,21 +4,38 @@ import NewExpenses from './NewExpenses'
 import ExpenseItem from './ExpenseItem';
 
 function ExpenseForm()
-{   const [enteredtitle,titlefunction]=useState('')
-const [enteredamount,amountfunction]=useState('')
-const [entereddate,datefunction]=useState('')
+{   const [input,setfunction]=useState({
+    enteredtitle:'',
+    entereddate:'',
+    enteredamount:''
+})
 
 
    const placetitle=(event)=>{
-       titlefunction(event.target.value)
+       setfunction((prevState)=>{
+       return {  ...prevState,
+            enteredtitle:event.target.value
+
+        }
+       })
    }
    const placeamount=(event)=>{
-    amountfunction(event.target.value)
+    setfunction((prevState)=>{
+        return {  ...prevState,
+             enteredamount:event.target.value
+ 
+         }
+        })
  
     
 }
 const placedate=(event)=>{
-    datefunction(event.target.value)
+    setfunction((prevState)=>{
+        return {  ...prevState,
+             entereddate:event.target.value
+ 
+         }
+        })
    
 }
 
@@ -36,7 +53,7 @@ const placedate=(event)=>{
         
     <br/>
    </form>
-   <ExpenseItem amount={Number(enteredamount)} title={enteredtitle} date={new Date(entereddate)}/>
+   <ExpenseItem amount={Number(input.enteredamount)} title={input.enteredtitle} date={new Date(input.entereddate)}/>
    
 
     </div>
