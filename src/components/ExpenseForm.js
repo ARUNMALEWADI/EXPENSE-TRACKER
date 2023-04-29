@@ -2,7 +2,16 @@ import { useState } from 'react';
 import './ExpenseForm.css'
 
 function ExpenseForm()
-{   const [input,setfunction]=useState({
+{  //using multiple states
+    
+    // const [title,settitle]=useState('')
+    // const [amount,setamount]=useState('')
+    // const[date,setdate]=useState('')
+
+ 
+//using single state
+
+const [inputs,setfunction]=useState({
     enteredtitle:'',
     entereddate:'',
     enteredamount:''
@@ -10,6 +19,8 @@ function ExpenseForm()
 
 
    const placetitle=(event)=>{
+    // settitle(event.target.value)
+
        setfunction((prevState)=>{
        return {  ...prevState,
             enteredtitle:event.target.value
@@ -18,6 +29,9 @@ function ExpenseForm()
        })
    }
    const placeamount=(event)=>{
+
+    // setamount(event.target.value)
+
     setfunction((prevState)=>{
         return {  ...prevState,
              enteredamount:event.target.value
@@ -28,6 +42,9 @@ function ExpenseForm()
     
 }
 const placedate=(event)=>{
+
+    // setdate(event.target.value)
+
     setfunction((prevState)=>{
         return {  ...prevState,
              entereddate:event.target.value
@@ -38,11 +55,27 @@ const placedate=(event)=>{
 }
 const show=(e)=>{
     e.preventDefault();
-    let obj={amount:input.enteredamount,
-            date:input.entereddate,
-            title: input.enteredtitle
+
+//     let obj1={amount:amount,
+//         date:date,
+//         title: amount
+// }
+// console.log(obj1)
+// setamount('')
+// setdate('')
+// settitle('')
+
+
+    let obj={amount:inputs.enteredamount,
+            date:inputs.entereddate,
+            title: inputs.enteredtitle
     }
     console.log(obj);
+    setfunction({
+        enteredamount:'',
+        enteredtitle:'',
+        entereddate:''
+    })
 }
 
 
@@ -51,10 +84,10 @@ const show=(e)=>{
 
     return <div>
         <form  className='exp' onSubmit={show}>
-    <label>title: </label><input type="text"  onChange={placetitle} ></input>
-    <label> date: </label><input type="date" onChange={placedate}></input>
+<label>title: </label><input type="text" value={inputs.enteredtitle}  onChange={placetitle} ></input>
+    <label> date: </label><input type="date" value={inputs.entereddate} onChange={placedate}></input>
     <label> expense value: </label>
-    <input type="text" onChange={placeamount} ></input>
+    <input type="text" value={inputs.enteredamount} onChange={placeamount} ></input>
         <button >Add expense </button>
         
     <br/>
