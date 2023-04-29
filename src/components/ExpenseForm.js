@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import './ExpenseForm.css'
-import NewExpenses from './NewExpenses'
-import ExpenseItem from './ExpenseItem';
 
 function ExpenseForm()
 {   const [input,setfunction]=useState({
@@ -38,23 +36,29 @@ const placedate=(event)=>{
         })
    
 }
+const show=(e)=>{
+    e.preventDefault();
+    let obj={amount:input.enteredamount,
+            date:input.entereddate,
+            title: input.enteredtitle
+    }
+    console.log(obj);
+}
 
 
 
 
 
     return <div>
-        <form  className='exp'>
+        <form  className='exp' onSubmit={show}>
     <label>title: </label><input type="text"  onChange={placetitle} ></input>
     <label> date: </label><input type="date" onChange={placedate}></input>
     <label> expense value: </label>
     <input type="text" onChange={placeamount} ></input>
-        <button  >Add expense </button>
+        <button >Add expense </button>
         
     <br/>
    </form>
-   <ExpenseItem amount={Number(input.enteredamount)} title={input.enteredtitle} date={new Date(input.entereddate)}/>
-   
 
     </div>
 
