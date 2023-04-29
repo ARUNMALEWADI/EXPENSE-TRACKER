@@ -30,5 +30,3 @@ function ExpenseDetails(props) {
 }
 
 export default ExpenseDetails;
-
-

@@ -1,32 +1,44 @@
+import { useState } from 'react';
 import './ExpenseForm.css'
+import NewExpenses from './NewExpenses'
+import ExpenseItem from './ExpenseItem';
 
 function ExpenseForm()
-{   
-    let a=[];
-    let i=-1;
-    const place=(event)=>{
-        event.preventDefault();
-    console.log(event.target.value)
-    console.log(event.target)
-    i++;
-    a[i]=event.target.value;
+{   const [enteredtitle,titlefunction]=useState('')
+const [enteredamount,amountfunction]=useState('')
+const [entereddate,datefunction]=useState('')
+
+
+   const placetitle=(event)=>{
+       titlefunction(event.target.value)
+   }
+   const placeamount=(event)=>{
+    amountfunction(event.target.value)
+ 
     
 }
-function sub(e)
-{  e.preventDefault()
-    console.log(a);
+const placedate=(event)=>{
+    datefunction(event.target.value)
+   
 }
+
+
+
 
 
     return <div>
         <form  className='exp'>
-    <label>title: </label><input type="text"  onChange={place} ></input>
-    <label> date: </label><input type="date" onChange={place}></input>
+    <label>title: </label><input type="text"  onChange={placetitle} ></input>
+    <label> date: </label><input type="date" onChange={placedate}></input>
     <label> expense value: </label>
-    <input type="number" onChange={place} ></input>
-    <button onClick={sub}>Add expense </button>
+    <input type="text" onChange={placeamount} ></input>
+        <button  >Add expense </button>
+        
     <br/>
    </form>
+   <ExpenseItem amount={Number(enteredamount)} title={enteredtitle} date={new Date(entereddate)}/>
+   
+
     </div>
 
 }
