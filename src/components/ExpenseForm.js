@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import React,{ useState } from 'react';
 import './ExpenseForm.css'
+
 
 
 //NOTE:COMMENTED THINGS ARE BINDING WITH SINGLE STATE 
 
-function ExpenseForm()
+function ExpenseForm(props)
 {  //using multiple states
     
     const [title,settitle]=useState('')
@@ -60,11 +61,15 @@ const placedate=(event)=>{
 const show=(e)=>{
     e.preventDefault();
 
-    let obj1={amount:amount,
+    let obj1={
+        title: title,
         date:date,
-        title: amount
+        amount:amount
+       
+       
 }
-console.log(obj1)
+props.send(obj1)
+
 setamount('')
 setdate('')
 settitle('')
@@ -86,18 +91,49 @@ settitle('')
 
 
 
-    return <div>
-        <form  className='exp' onSubmit={show}>
-<label>title: </label><input type="text" value={title}  onChange={placetitle} ></input>
-    <label> date: </label><input type="date" value={date} onChange={placedate}></input>
-    <label> expense value: </label>
-    <input type="text" value={amount} onChange={placeamount} ></input>
-        <button >Add expense </button>
+    return (<form onSubmit={show} >
+        <div className='new-expense__controls'>
+          <div className='new-expense__control'>
+            <label>Title</label>
+            <input
+              type='text'
+              value={title}
+              onChange={placetitle}
+          
+            />
+          </div>
+          <div className='new-expense__control'>
+            <label>Amount</label>
+            <input
+              type='number'
+              min='0.01'
+              step='0.01'
+              value={amount}
+              onChange={placeamount}
+              style={{backgroundColor:"yellow"}}
+            />
+          </div>
+          <div className='new-expense__control'>
+            <label>Date</label>
+            <input
+              type='date'
+              min='2019-01-01'
+              max='2022-12-31'
+              value={date}
+              onChange={placedate}
+            />
+          </div>
+          <div className='new-expense__actions'>
+          <button type='submit' >Add Expense</button>
+          
+        </div>
+          </div>
+      
+       
         
-    <br/>
-   </form>
-
-    </div>
+     
+      </form>
+    )
 
 }
 export default ExpenseForm;
