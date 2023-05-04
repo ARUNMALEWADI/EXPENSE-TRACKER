@@ -5,7 +5,8 @@ import ExpenseFilter from './ExpenseFilter';
 
 function ExpenseDetails(props) {
 
-  const [get_year,set_year]=useState(2022)
+  
+  const [get_year,set_year]=useState("2022")
 
 const select_year=(event)=>{
  set_year(event.target.value);
@@ -13,6 +14,11 @@ const select_year=(event)=>{
 
 }
 
+const filtered_expense=props.items.filter((expense)=>{
+
+  return new Date(expense.date).getFullYear().toString()===get_year;
+
+})
 
 
   return (
@@ -25,12 +31,16 @@ const select_year=(event)=>{
     </select>
    
 
-      { props.items.map((i)=>(
-        <ExpenseFilter key={i.id} date={i.date} amount={i.amount} title={i.title} year={get_year}></ExpenseFilter>
+
+      { filtered_expense.length>0 && filtered_expense.map((i)=>(
+
+        <ExpenseFilter key={i.id} date={i.date} amount={i.amount} title={i.title} ></ExpenseFilter>
         
       ))
-
-
+    
+      }
+      {
+          filtered_expense.length===0 && <h2 className='noexpense'>No item found!!</h2>
       }
       
     </Card>

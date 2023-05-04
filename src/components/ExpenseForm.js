@@ -47,7 +47,7 @@ function ExpenseForm(props)
     
 }
 const placedate=(event)=>{
-
+  console.log(typeof(event.target.value))
      setdate(event.target.value)
 
     // setfunction((prevState)=>{

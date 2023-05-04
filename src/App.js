@@ -29,14 +29,17 @@ function App() {
 
   
   const [expenses,addexpense]=useState(oldexpense)
+
 const Get_NewExpense=expense=>
 { expense.id=Math.random()  //added id to newly added expense
-  addexpense(prevexpense=>{
+console.log(expense); 
+addexpense(prevexpense=>{
   return [expense,...prevexpense]
 
 })
 
 }
+
 
   return (
     <div>
