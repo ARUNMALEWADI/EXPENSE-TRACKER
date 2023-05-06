@@ -69,6 +69,7 @@ const show=(e)=>{
        
 }
 props.send(obj1)
+props.oncancel();
 
 setamount('')
 setdate('')
@@ -110,7 +111,7 @@ settitle('')
               step='0.01'
               value={amount}
               onChange={placeamount}
-              style={{backgroundColor:"yellow"}}
+              
             />
           </div>
           <div className='new-expense__control'>
@@ -124,7 +125,8 @@ settitle('')
             />
           </div>
           <div className='new-expense__actions'>
-          <button type='submit' >Add Expense</button>
+          <button type='submit' style={{background:'violet'}} >Add Expense</button>
+          <button type='button' onClick={props.oncancel} style={{background:'red'}}>cancel</button>
           
         </div>
           </div>

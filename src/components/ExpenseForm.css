@@ -29,11 +29,16 @@
     border: 1px solid #3c0a0a;
     width: 20rem;
     max-width: 100%;
+    background-color:blue;
+    color:white
   }
   
   .new-expense__actions {
     text-align: right;
+   text-color: blue;
+   
   }
+
   .input_title{
     background-color: #3c0a0a;
   }
