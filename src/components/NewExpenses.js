@@ -22,8 +22,8 @@ const collect =(fetcheddata) =>{
  }
   
     return   (
-    <div className='btns'>
-   {    !isediting && <button type="button" id='btn'  onClick={show_form}>Add Expense</button>
+    <div >
+   {    !isediting && <button type="button" id='btn'  onClick={show_form} className="btns">Add Expense</button>
         
    }
    {

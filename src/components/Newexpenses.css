@@ -37,8 +37,13 @@
     background-color: #ddb3f8;
   }
   .btns
-  {
+  { position: fixed;
+     margin-left: 16cm;
+    margin-bottom: -1cm;
+    width: 2cm;
+    height: 1cm;
+    color: #40005d;
     text-align: center;
-    background: aqua;
+    background:rgb(206, 40, 244);
     text-decoration-color: #510674;
   }

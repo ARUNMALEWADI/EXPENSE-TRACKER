@@ -8,7 +8,8 @@ const ExpenseFilter = (props) => {
 
 
   return (
-    <div>
+   
+    <div >
     {<ExpenseItem date={props.date} amount={props.amount} title={props.title}></ExpenseItem>
     
     }

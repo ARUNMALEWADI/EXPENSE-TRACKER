@@ -9,3 +9,9 @@
 {
   color:red;
 }
+.selector{
+  background-color: rgb(255, 153, 20);
+  color: black;
+  height: 1cm;
+  margin-left: 0.1cm;
+}

@@ -3,6 +3,7 @@ import Card from './Card';
 import './ExpenseDetails.css';
 import ExpenseFilter from './ExpenseFilter';
 import ExpensesChart from './ExpenseChart';
+import NewExpenses from './NewExpenses';
 
 function ExpenseDetails(props) {
 
@@ -24,7 +25,8 @@ const filtered_expense=props.items.filter((expense)=>{
 
   return (
     <Card className="expenses">
-       <select  onChange={select_year}>
+         <NewExpenses New_Expense={props.New_Expense}></NewExpenses>
+       <select  onChange={select_year} className='selector'>
       <option>2022</option>
       <option>2021</option>
       <option>2020</option>
@@ -32,7 +34,7 @@ const filtered_expense=props.items.filter((expense)=>{
     </select>
    
     <ExpensesChart expenses={filtered_expense} />
-
+     
       { filtered_expense.length>0 && filtered_expense.map((i)=>(
 
         <ExpenseFilter key={i.id} date={i.date} amount={i.amount} title={i.title} ></ExpenseFilter>
@@ -45,6 +47,7 @@ const filtered_expense=props.items.filter((expense)=>{
       {
           filtered_expense.length===0 && <h2 className='noexpense'>No item found!!</h2>
       }
+   
       
     </Card>
   );

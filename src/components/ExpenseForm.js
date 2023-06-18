@@ -1,5 +1,7 @@
 import React,{ useState } from 'react';
 import './ExpenseForm.css'
+import ReactDOM from 'react-dom';
+
 
 
 
@@ -92,7 +94,7 @@ settitle('')
 
 
 
-    return (<form onSubmit={show} >
+    return ReactDOM.createPortal(<form onSubmit={show} >
         <div className='new-expense__controls'>
           <div className='new-expense__control'>
             <label>Title</label>
@@ -100,7 +102,7 @@ settitle('')
               type='text'
               value={title}
               onChange={placetitle}
-          
+          required
             />
           </div>
           <div className='new-expense__control'>
@@ -111,7 +113,7 @@ settitle('')
               step='0.01'
               value={amount}
               onChange={placeamount}
-              
+              required
             />
           </div>
           <div className='new-expense__control'>
@@ -122,11 +124,12 @@ settitle('')
               max='2022-12-31'
               value={date}
               onChange={placedate}
+              required
             />
           </div>
           <div className='new-expense__actions'>
           <button type='submit' style={{background:'violet'}} >Add Expense</button>
-          <button type='button' onClick={props.oncancel} style={{background:'red'}}>cancel</button>
+          <button type='button' onClick={props.oncancel} style={{background:' #3c0a0a',color:'white'}}>cancel</button>
           
         </div>
           </div>
@@ -134,7 +137,7 @@ settitle('')
        
         
      
-      </form>
+      </form>,document.getElementById('overlay')
     )
 
 }

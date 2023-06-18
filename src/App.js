@@ -1,8 +1,8 @@
 
 import ExpenseDetails from './components/ExpenseDetails';
-import NewExpenses from './components/NewExpenses';
-import React ,{useState} from 'react';
 
+import React ,{useState} from 'react';
+import './App.css'
 const oldexpense = [
   {
     id: 'e1',
@@ -42,10 +42,10 @@ addexpense(prevexpense=>{
 
 
   return (
-    <div>
-       <NewExpenses New_Expense={Get_NewExpense}></NewExpenses>
-      <ExpenseDetails items={expenses}  />
-     
+    <div className='back'>
+      <ExpenseDetails items={expenses}  New_Expense={Get_NewExpense} />
+           
+
      
 
     </div>
